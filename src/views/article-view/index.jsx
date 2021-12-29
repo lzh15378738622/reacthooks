@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react'
 import * as pageApi from './api'
 import useAsync from '../../hooks/useAsync'
 import CommentList from './CommentList'
-import Proptypes from 'prop-types'
+import PropTypes from 'prop-types'
 const ARTICLE_LIST = [
   { id: 1, title: 'Article 1' },
   { id: 2, title: 'Article 2' },
   { id: 3, title: 'Article 3' },
   { id: 4, title: 'Article 4' }
 ]
-const pageView = function () {
+const PageView = function () {
   const [id, setId] = useState(1)
   return (
     <div className='exp-09-article-view-wrapper'>
@@ -49,10 +49,12 @@ const ArticleView = ({ id }) => {
     error: error3
   } = useAsync(() => pageApi.getUser(id))
 
+  // eslint-disable-next-line  react-hooks/exhaustive-deps
   useEffect(() => {
     getArticle(id)
     getCommentList(id)
     getUser(id)
+    // eslint-disable-next-line  react-hooks/exhaustive-deps
   }, [id])
 
   if (!article) return loading1
@@ -76,7 +78,7 @@ const ArticleView = ({ id }) => {
   )
 }
 ArticleView.propTypes = {
-  id: Proptypes.string
+  id: PropTypes.string
 }
 
-export default pageView
+export default PageView

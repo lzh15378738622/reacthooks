@@ -25,6 +25,7 @@ export default function App() {
         <Link to='/articleView'>articleView</Link>|{''}
         <Link to='/userList'>userList</Link>|{''}
         <Link to='/addEventLisenter'>addEventLisenter</Link>|{''}
+        <Link to='/testDepWarning'>testDepWarning</Link>|{''}
       </nav>
       <Outlet />
       <DocumentTitle title='12123'></DocumentTitle>

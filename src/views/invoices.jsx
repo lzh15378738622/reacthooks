@@ -38,6 +38,7 @@ export default function Invoices() {
       clearInterval(timer.current)
     }
     setIsPause(!isPause)
+    // eslint-disable-next-line  react-hooks/exhaustive-deps
   }, [isPause, time])
 
   const [couter, setCouter] = useState(0)

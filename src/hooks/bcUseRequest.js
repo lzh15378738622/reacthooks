@@ -1,6 +1,6 @@
 import { useRequest } from 'ahooks'
 import { useMemo } from 'react'
-const bcUseRequest = (asyncF, options) => {
+const useBcRequest = (asyncF, options) => {
   let { run, data: resData, loading, error } = useRequest(asyncF, options)
   const result = useMemo(() => {
     if (resData?.status === 200) {
@@ -10,4 +10,4 @@ const bcUseRequest = (asyncF, options) => {
   }, [resData])
   return { run, result, loading, error }
 }
-export default bcUseRequest
+export default useBcRequest

@@ -4,13 +4,16 @@ import React, { useCallback, useEffect, useRef, useState } from 'react'
 const useKeyPress = (domref = document.body) => {
   const [key, setKey] = useState(null)
   useEffect(() => {
+    let domrefCurrent = null
     const handleKeyPress = ({ offsetX, offsetY }) => {
       setKey({ offsetX, offsetY })
     }
+
     if (!domref.current) return null
-    domref.current.addEventListener('mousemove', handleKeyPress)
+    domrefCurrent = domref.current
+    domrefCurrent.addEventListener('mousemove', handleKeyPress)
     return () => {
-      domref.current.removeEventListener('mousemove', handleKeyPress)
+      domrefCurrent.removeEventListener('mousemove', handleKeyPress)
     }
   }, [domref])
 

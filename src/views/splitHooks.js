@@ -13,6 +13,7 @@ const useArticles = () => {
     useCallback(async () => {
       const res = await fetch(`${endpoint}/posts`)
       return await res.json()
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
   )
   // 执行异步调用
@@ -74,17 +75,21 @@ const useCouter = () => {
   const [step, setStep] = useState(0)
   const increase = useCallback(() => {
     setCouter(couter + +step)
+    // eslint-disable-next-line  react-hooks/exhaustive-deps
   }, [couter, step])
   const decrease = useCallback(() => {
     setCouter(couter - +step)
+    // eslint-disable-next-line  react-hooks/exhaustive-deps
   }, [couter, step])
   const reset = useCallback(() => {
     setCouter(0)
+    // eslint-disable-next-line  react-hooks/exhaustive-deps
   }, [couter, step])
   const setCurStep = useCallback(
     (val) => {
       setStep(val)
     },
+    // eslint-disable-next-line  react-hooks/exhaustive-deps
     [step]
   )
   return { couter, increase, decrease, reset, step, setCurStep }
@@ -123,9 +128,9 @@ export default function BlogList() {
   // // 如果没有结果，说明正在加载
   // if (!result) return "Loading...";
   const iconStyle = { fontSize: '32px' }
-  const handleChangeVersion = useCallback(() => {
+  const handleChangeVersion = () => {
     dispatch({ type: 'CHANG_VERSION', payload: { v: '2.0.0' } })
-  })
+  }
   return (
     <div>
       <Button onClick={handleChangeVersion}>更改app版本号</Button>

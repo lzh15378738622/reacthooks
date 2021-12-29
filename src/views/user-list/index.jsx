@@ -19,12 +19,9 @@ const UserList = () => {
   //   getUsers()
   // }, [])
 
-  const showUser = useCallback(
-    (id) => {
-      setId(id)
-    },
-    [id]
-  )
+  const showUser = useCallback((id) => {
+    setId(id)
+  }, [])
   console.log('index')
   const hideUser = useCallback(() => setId(null), [])
   if (loading && !users) return 'loading'

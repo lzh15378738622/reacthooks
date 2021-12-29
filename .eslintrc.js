@@ -6,21 +6,15 @@ module.exports = {
   globals: {
     wx: true
   },
-
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
     //    "airbnb",
     'prettier'
   ],
   //  "parser": "@typescript-eslint/parser",
-  settings: {
-    'import/resolver': {
-      webpack: {
-        config: 'conf/webpack.base.js'
-      }
-    }
-  },
+  settings: {},
   parserOptions: {
     parser: 'babel-eslint',
     ecmaFeatures: {
@@ -31,11 +25,12 @@ module.exports = {
   },
   plugins: ['react', 'prettier'],
   rules: {
-    'prettier/prettier': 'error',
+    'prettier/prettier': 'warn',
     semi: ['error', 'never'],
     'no-unused-vars': 0,
     'no-console': 0,
     'no-debugger': 0,
-    'react/prop-types': 1
+    'react/prop-types': 1,
+    'react-hooks/exhaustive-deps': 'off'
   }
 }

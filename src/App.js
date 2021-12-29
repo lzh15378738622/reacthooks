@@ -10,6 +10,8 @@ import ArticleView from './views/article-view'
 import UserList from './views/user-list'
 import AddEventLisenter from './views/addEventLisenter'
 import ComponenHoook from './views/componenHoook'
+import TestDepWarning from './views/testDepWarning'
+import mock from './mock'
 
 export default function App() {
   const routes = [
@@ -44,6 +46,10 @@ export default function App() {
     {
       path: '/componenHoook',
       element: <ComponenHoook />
+    },
+    {
+      path: '/testDepWarning',
+      element: <TestDepWarning />
     },
     {
       path: '/',
