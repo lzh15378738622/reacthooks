@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react'
-import PropTypes from 'prop-types'
+import PropTypes, { any } from 'prop-types'
 /**
  * value structure:
  * {
@@ -8,8 +8,15 @@ import PropTypes from 'prop-types'
  * }
  *
  */
+interface PriceInputProps {
+  value: any
+  onChange?: any
+}
 
-function PriceInput({ value = { amount: 0, currency: 'rmb' }, onChange = () => {} }) {
+function PriceInput({
+  value = { amount: 0, currency: 'rmb' },
+  onChange = (val: string | number): void => {}
+}: PriceInputProps) {
   const handleChange = useCallback(
     (deltaValue) => {
       onChange({
@@ -19,6 +26,7 @@ function PriceInput({ value = { amount: 0, currency: 'rmb' }, onChange = () => {
     },
     [value, onChange]
   )
+
   return (
     <div className='exp-02-price-input'>
       <input value={value.amount} onChange={(evt) => handleChange({ amount: evt.target.value })} />

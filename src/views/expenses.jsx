@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import useAsync from '../hooks/useAsync'
+import useAsync from '../yhooks/useAsync'
 
 export default function Expenses() {
   const { data, loading, error, execute } = useAsync(async () => {

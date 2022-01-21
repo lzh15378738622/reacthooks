@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import * as pageApi from './api'
-import useAsync from '../../hooks/useAsync'
+import useAsync from '../../yhooks/useAsync'
 import CommentList from './CommentList'
 import PropTypes from 'prop-types'
 const ARTICLE_LIST = [

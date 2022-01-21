@@ -1,4 +1,4 @@
-import bcUseRequest from '../../hooks/bcUseRequest'
+import useBcRequest from '../../yhooks/useBcRequest'
 import React from 'react'
 import { Modal } from 'antd'
 import * as pageApi from '../article-view/api'
@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
 const UserInfoModal = ({ id, ...rest }) => {
   // const { result: user = {}, error } = {}
   console.log('UserInfoModal')
-  const { result: user = {}, error } = bcUseRequest(() => pageApi.getUser(id))
+  const { result: user = {}, error } = useBcRequest(() => pageApi.getUser(id))
   return (
     <Modal visible={!!id} className='exp-10-user-info-modal' {...rest}>
       {error && 'Fetch failed.'}

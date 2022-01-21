@@ -7,7 +7,7 @@ const endPoints = {
 }
 
 const request = axios.create({
-  // baseURL: endPoints.test,
+  baseURL: endPoints.test,
 
   timeout: 30000,
   headers: { Authorization: 'Bear mytoken' }

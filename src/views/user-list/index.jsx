@@ -1,8 +1,9 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import * as pageApi from './api'
-import bcUseRequest from '../../hooks/bcUseRequest'
+// import useBcRequest from '../../hooks/useBcRequest'
 import UserInfoModal from './UserInfoModal'
-import useAsync from '../../hooks/useAsync'
+// import useAsync from '../../hooks/useAsync'
+import { useGetUsers } from '@/serviceHooks/account'
 
 const UserList = () => {
   const [id, setId] = useState(null)
@@ -13,8 +14,8 @@ const UserList = () => {
   //   error: error
   // } = useAsync(() => pageApi.getUsers())
 
-  const { run, result: users = [], loading, error } = bcUseRequest(() => pageApi.getUsers())
-
+  const { run, result: users = [], loading, error } = useGetUsers({})
+  // const { run: run2, result: users2 = [], loading: loading2, error: error2 } = useGetUsers()
   // useEffect(() => {
   //   getUsers()
   // }, [])
